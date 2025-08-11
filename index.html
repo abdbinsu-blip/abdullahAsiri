@@ -1,145 +1,159 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معسكر آباد</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>معسكر آباد</title>
 
-    <!-- أيقونة التبويب (favicon) -->
-    <link rel="icon" type="image/png" href="logoo.png">
+  <!-- أيقونة التبويب -->
+  <link rel="icon" type="image/png" href="logoo.png"/>
 
-    <!-- ربط ملف التنسيق الخارجي -->
-    <link rel="stylesheet" href="style.css">
+  <!-- ملف التنسيق -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-    <!-- الهيدر -->
-    <header id="header">
-        <img id="logo" src="logot.png" alt="Logo">
-        <div id="site-title">موقعي التجريبي</div>
-    </header>
+  <!-- شاشة الترحيب (Splash) -->
+  <div id="splash">
+    <img src="logot.png" alt="Logo" id="splash-logo"/>
+  </div>
 
-    <!-- صورة وسطية -->
-    <img id="photo" src="photo.jpeg" alt="صورة المعسكر">
+  <!-- الهيدر -->
+  <header id="header">
+    <img id="logo" src="logot.png" alt="Logo"/>
+    <div id="site-title">موقعي التجريبي</div>
+  </header>
 
-    <!-- المحتوى الرئيسي -->
-    <main id="main-content">
-<h1 style="text-align: center;">معسكر البرمجة الشامل</h1>
-        <!-- خطة التدريب -->
-        <section id="course-plan" class="p">
-            <h2>خطة التدريب</h2>
-            <ol>
-                <li>
-                    <strong>SQL (مدة: أسبوع)</strong><br>
-                    مقدمة عن قواعد البيانات وأنظمة إدارة قواعد البيانات<br>
-                    أنواع قواعد البيانات: العلائقية (Relational) مقابل غير العلائقية (NoSQL)<br>
-                    إنشاء وتعديل الجداول (CREATE, ALTER, DROP)<br>
-                    الاستعلامات الأساسية واسترجاع البيانات (SELECT, WHERE, ORDER BY, GROUP BY, HAVING)
-                </li>
+  <!-- صورة وسطية -->
+  <img id="photo" src="photo.jpeg" alt="صورة المعسكر"/>
 
-                <li>
-                    <strong>لغة C# (مدة: أسبوع)</strong><br>
-                    التعرف على بنية البرنامج<br>
-                    كتابة أول برنامج بلغة C#<br>
-                    أنواع البيانات والمتغيرات والثوابت<br>
-                    الجمل الشرطية والحلقات
-                </li>
+  <!-- المحتوى الرئيسي -->
+  <main id="main-content">
+    <h1 class="p title-center">معسكر البرمجة الشامل</h1>
 
-                <li>
-                    <strong>البرمجة الكائنية (OOP) باستخدام C# (مدة: أسبوع)</strong><br>
-                    الفئات والكائنات<br>
-                    الوراثة، التعددية الشكلية، التغليف والتجريد<br>
-                    الواجهات والفئات المجردة
-                </li>
+    <!-- خطة التدريب -->
+    <section id="course-plan" class="p">
+      <h2>خطة التدريب</h2>
+      <ol>
+        <li>
+          <strong>SQL (مدة: أسبوع)</strong><br>
+          مقدمة عن قواعد البيانات وأنظمة إدارة قواعد البيانات<br>
+          أنواع قواعد البيانات: العلائقية (Relational) مقابل غير العلائقية (NoSQL)<br>
+          إنشاء وتعديل الجداول (CREATE, ALTER, DROP)<br>
+          الاستعلامات الأساسية واسترجاع البيانات (SELECT, WHERE, ORDER BY, GROUP BY, HAVING)
+        </li>
 
-                <li>
-                    <strong>HTML/CSS/JavaScript + Bootstrap (مدة: 3 أسابيع)</strong><br>
-                    HTML5: بناء الصفحات والعناصر الأساسية<br>
-                    CSS3: النماذج الصندوقية والتصميم المتجاوب<br>
-                    JavaScript: التفاعل مع DOM ومعالجة الأحداث<br>
-                    Bootstrap: المكونات الجاهزة والتصميم الشبكي
-                </li>
+        <li>
+          <strong>لغة C# (مدة: أسبوع)</strong><br>
+          التعرف على بنية البرنامج<br>
+          كتابة أول برنامج بلغة C#<br>
+          أنواع البيانات والمتغيرات والثوابت<br>
+          الجمل الشرطية والحلقات
+        </li>
 
-                <li>
-                    <strong>Entity Framework Core (مدة: أسبوع)</strong><br>
-                    مقدمة في ORM<br>
-                    تنفيذ العمليات CRUD باستخدام EF Core<br>
-                    استخدام LINQ للاستعلام
-                </li>
+        <li>
+          <strong>البرمجة الكائنية (OOP) باستخدام C# (مدة: أسبوع)</strong><br>
+          الفئات والكائنات<br>
+          الوراثة، التعددية الشكلية، التغليف والتجريد<br>
+          الواجهات والفئات المجردة
+        </li>
 
-                <li>
-                    <strong>ASP.NET Core MVC (مدة: أسبوعان)</strong><br>
-                    مقدمة في بنية MVC<br>
-                    التعامل مع النماذج والتحقق من صحة المدخلات<br>
-                    المصادقة وإدارة الصلاحيات
-                </li>
+        <li>
+          <strong>HTML/CSS/JavaScript + Bootstrap (مدة: 3 أسابيع)</strong><br>
+          HTML5: بناء الصفحات والعناصر الأساسية<br>
+          CSS3: النماذج الصندوقية والتصميم المتجاوب<br>
+          JavaScript: التفاعل مع DOM ومعالجة الأحداث<br>
+          Bootstrap: المكونات الجاهزة والتصميم الشبكي
+        </li>
 
-                <li>
-                    <strong>ASP.NET CORE WEB API (مدة: أسبوعان)</strong><br>
-                    مقدمة في Web API<br>
-                    التحكم في البيانات والتوجيه (Controllers & Routing)<br>
-                    التعامل مع البيانات باستخدام Entity Framework Core<br>
-                    التحقق من صحة البيانات وإدارة الطلبات<br>
-                    توثيق الـ API والاختبار
-                </li>
+        <li>
+          <strong>Entity Framework Core (مدة: أسبوع)</strong><br>
+          مقدمة في ORM<br>
+          تنفيذ العمليات CRUD باستخدام EF Core<br>
+          استخدام LINQ للاستعلام
+        </li>
 
-                <li>
-                    <strong>الهيكلية النظيفة (Clean Architecture) (مدة: أسبوع)</strong><br>
-                    مبادئ الهيكلية النظيفة وفصل المسؤوليات<br>
-                    استخدام أنماط الخدمة والمستودع
-                </li>
+        <li>
+          <strong>ASP.NET Core MVC (مدة: أسبوعان)</strong><br>
+          مقدمة في بنية MVC<br>
+          التعامل مع النماذج والتحقق من صحة المدخلات<br>
+          المصادقة وإدارة الصلاحيات
+        </li>
 
-                <li>
-                    <strong>Flutter (مدة: 4 أسابيع)</strong><br>
-                    بناء التطبيقات باستخدام Flutter<br>
-                    إدارة الحالة باستخدام Provider وGETX<br>
-                    تكامل API والعمل مع Firebase
-                </li>
-            </ol>
-        </section>
+        <li>
+          <strong>ASP.NET CORE WEB API (مدة: أسبوعان)</strong><br>
+          مقدمة في Web API<br>
+          التحكم في البيانات والتوجيه (Controllers & Routing)<br>
+          التعامل مع البيانات باستخدام Entity Framework Core<br>
+          التحقق من صحة البيانات وإدارة الطلبات<br>
+          توثيق الـ API والاختبار
+        </li>
 
-        <!-- الفيديو -->
-        <section id="video-frame">
-            <h2>مقطع فيديو تعليمي</h2>
-            <iframe
-                src="https://us06web.zoom.us/rec/play/H75k-13WaRYNMr2p6MYCUwysW3fAdL5hkymS33rnoQQIswnaj5tQz-c6P6jKP8DgcbgZDnZX4LMcjB7M.YMbCdkhJfEKNL1Ix?eagerLoadZvaPages=&accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&startTime=1751626278000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FY9yVnZ3-mBPf2Zuh0gYPAeI8su8KqpWoKCLCV7uK4p1uxHxFxNAKGlDOkP__euc8.GOCrh5brSdK0-Bdh%3FstartTime%3D1751626278000"
-                title="فيديو تعليمي" frameborder="0" allowfullscreen>
-            </iframe>
-            <!-- ملاحظة: قد يمنع Zoom التضمين. لو ما اشتغل، ارفع المقطع على YouTube/Vimeo أو فعّل السماح بالتضمين. -->
-        </section>
+        <li>
+          <strong>الهيكلية النظيفة (Clean Architecture) (مدة: أسبوع)</strong><br>
+          مبادئ الهيكلية النظيفة وفصل المسؤوليات<br>
+          استخدام أنماط الخدمة والمستودع
+        </li>
 
-        <!-- نموذج تواصل -->
-        <form>
-            <h2 id="head">نموذج تواصل</h2>
+        <li>
+          <strong>Flutter (مدة: 4 أسابيع)</strong><br>
+          بناء التطبيقات باستخدام Flutter<br>
+          إدارة الحالة باستخدام Provider وGETX<br>
+          تكامل API والعمل مع Firebase
+        </li>
+      </ol>
+    </section>
 
-            <label for="name">الاسم:</label>
-            <input id="name" name="name" type="text" placeholder="اكتب اسمك">
+    <!-- الفيديو -->
+    <section id="video-frame">
+      <h2>مقطع فيديو تعليمي</h2>
+      <iframe
+        src="https://us06web.zoom.us/rec/play/H75k-13WaRYNMr2p6MYCUwysW3fAdL5hkymS33rnoQQIswnaj5tQz-c6P6jKP8DgcbgZDnZX4LMcjB7M.YMbCdkhJfEKNL1Ix?eagerLoadZvaPages=&accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&startTime=1751626278000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FY9yVnZ3-mBPf2Zuh0gYPAeI8su8KqpWoKCLCV7uK4p1uxHxFxNAKGlDOkP__euc8.GOCrh5brSdK0-Bdh%3FstartTime%3D1751626278000"
+        title="فيديو تعليمي" frameborder="0" allowfullscreen>
+      </iframe>
+      <!-- ملاحظة: بعض روابط Zoom قد تمنع التضمين. إن ما اشتغل، ارفع المقطع على YouTube/Vimeo. -->
+    </section>
 
-            <label for="email">البريد الإلكتروني:</label>
-            <input id="email" name="email" type="email" placeholder="example@mail.com">
+    <!-- نموذج تواصل -->
+    <form>
+      <h2 id="head">نموذج تواصل</h2>
 
-            <label for="subject">الموضوع:</label>
-            <input id="subject" name="subject" type="text" placeholder="موضوع الرسالة">
+      <label for="name">الاسم:</label>
+      <input id="name" name="name" type="text" placeholder="اكتب اسمك"/>
 
-            <label for="message">الرسالة:</label>
-            <textarea id="message" name="message" cols="30" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
+      <label for="email">البريد الإلكتروني:</label>
+      <input id="email" name="email" type="email" placeholder="example@mail.com"/>
 
-            <label for="file">أرفق ملف:</label>
-            <input id="file" name="file" type="file">
+      <label for="subject">الموضوع:</label>
+      <input id="subject" name="subject" type="text" placeholder="موضوع الرسالة"/>
 
-            <button type="submit">إرسال</button>
-        </form>
-    </main>
+      <label for="message">الرسالة:</label>
+      <textarea id="message" name="message" cols="30" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
 
-    <!-- الفوتر -->
-    <footer id="footer">
-        <p>© 2025 جميع الحقوق محفوظة</p>
-        <div id="footer-links">
-            <!-- يفضّل رقم واتساب بالصيغة الدولية: 9665XXXXXXX (بدون أصفار والبداية 966) -->
-            <a href="https://wa.me/0555129578" target="_blank" rel="noopener">واتساب</a>
-            <a href="https://www.linkedin.com/in/abadnet?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-    </footer>
+      <label for="file">أرفق ملف:</label>
+      <input id="file" name="file" type="file"/>
 
+      <button type="submit">إرسال</button>
+    </form>
+  </main>
+
+  <!-- الفوتر -->
+  <footer id="footer">
+    <p>© 2025 جميع الحقوق محفوظة</p>
+    <div id="footer-links">
+      <!-- فضّل رقم واتساب بصيغة دولية: 9665XXXXXXX -->
+      <a href="https://wa.me/0555129578" target="_blank" rel="noopener">واتساب</a>
+      <a href="https://www.linkedin.com/in/abadnet?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- إخفاء شاشة الترحيب بعد 3 ثواني -->
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("splash").classList.add("hidden");
+      }, 3000); // 3 ثواني
+    });
+  </script>
 </body>
 </html>

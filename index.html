@@ -1,159 +1,294 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>معسكر آباد</title>
-
-  <!-- أيقونة التبويب -->
-  <link rel="icon" type="image/png" href="logoo.png"/>
-
-  <!-- ملف التنسيق -->
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>حاسبة المعدل التراكمي</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Tahoma,Arial;line-height:1.6;margin:24px;background:#fafafa;color:#222}
+  h1{margin-top:0}
+  .card{background:#fff;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  label{font-weight:600;margin-inline-end:8px}
+  input,select,button{padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px}
+  input[type=number]{width:120px}
+  table{width:100%;border-collapse:collapse;margin-top:10px}
+  th,td{border-bottom:1px solid #eee;padding:10px;text-align:center}
+  th{background:#f4f6f8}
+  .row-actions button{padding:6px 10px}
+  .muted{color:#666;font-size:13px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .results{font-size:18px}
+  .results span{display:inline-block;min-width:110px}
+  .pill{display:inline-block;padding:4px 10px;border:1px solid #ddd;border-radius:999px;background:#fff}
+  .footer{font-size:12px;color:#666;margin-top:8px}
+</style>
 </head>
 <body>
 
-  <!-- شاشة الترحيب (Splash) -->
-  <div id="splash">
-    <img src="logot.png" alt="Logo" id="splash-logo"/>
+<h1>حاسبة المعدل التراكمي</h1>
+
+<div class="card grid">
+  <div>
+    <label for="scale">سلم الدرجات:</label>
+    <select id="scale">
+      <option value="4">4.0</option>
+      <option value="5">5.0 (شائع في بعض الجامعات)</option>
+    </select>
   </div>
 
-  <!-- الهيدر -->
-  <header id="header">
-    <img id="logo" src="logot.png" alt="Logo"/>
-    <div id="site-title">موقعي التجريبي</div>
-  </header>
+  <div>
+    <label for="gradeMode">طريقة إدخال الدرجة:</label>
+    <select id="gradeMode">
+      <option value="letter">حروف (A, B+, ...)</option>
+      <option value="percent">نسبة مئوية (%)</option>
+    </select>
+  </div>
 
-  <!-- صورة وسطية -->
-  <img id="photo" src="photo.jpeg" alt="صورة المعسكر"/>
+  <div>
+    <label for="prevHours">ساعات سابقة مجتازة:</label>
+    <input id="prevHours" type="number" min="0" step="0.01" placeholder="مثال: 84" />
+  </div>
 
-  <!-- المحتوى الرئيسي -->
-  <main id="main-content">
-    <h1 class="p title-center">معسكر البرمجة الشامل</h1>
+  <div>
+    <label for="prevGpa">المعدل السابق:</label>
+    <input id="prevGpa" type="number" min="0" step="0.001" placeholder="مثال: 3.21" />
+  </div>
+</div>
 
-    <!-- خطة التدريب -->
-    <section id="course-plan" class="p">
-      <h2>خطة التدريب</h2>
-      <ol>
-        <li>
-          <strong>SQL (مدة: أسبوع)</strong><br>
-          مقدمة عن قواعد البيانات وأنظمة إدارة قواعد البيانات<br>
-          أنواع قواعد البيانات: العلائقية (Relational) مقابل غير العلائقية (NoSQL)<br>
-          إنشاء وتعديل الجداول (CREATE, ALTER, DROP)<br>
-          الاستعلامات الأساسية واسترجاع البيانات (SELECT, WHERE, ORDER BY, GROUP BY, HAVING)
-        </li>
-
-        <li>
-          <strong>لغة C# (مدة: أسبوع)</strong><br>
-          التعرف على بنية البرنامج<br>
-          كتابة أول برنامج بلغة C#<br>
-          أنواع البيانات والمتغيرات والثوابت<br>
-          الجمل الشرطية والحلقات
-        </li>
-
-        <li>
-          <strong>البرمجة الكائنية (OOP) باستخدام C# (مدة: أسبوع)</strong><br>
-          الفئات والكائنات<br>
-          الوراثة، التعددية الشكلية، التغليف والتجريد<br>
-          الواجهات والفئات المجردة
-        </li>
-
-        <li>
-          <strong>HTML/CSS/JavaScript + Bootstrap (مدة: 3 أسابيع)</strong><br>
-          HTML5: بناء الصفحات والعناصر الأساسية<br>
-          CSS3: النماذج الصندوقية والتصميم المتجاوب<br>
-          JavaScript: التفاعل مع DOM ومعالجة الأحداث<br>
-          Bootstrap: المكونات الجاهزة والتصميم الشبكي
-        </li>
-
-        <li>
-          <strong>Entity Framework Core (مدة: أسبوع)</strong><br>
-          مقدمة في ORM<br>
-          تنفيذ العمليات CRUD باستخدام EF Core<br>
-          استخدام LINQ للاستعلام
-        </li>
-
-        <li>
-          <strong>ASP.NET Core MVC (مدة: أسبوعان)</strong><br>
-          مقدمة في بنية MVC<br>
-          التعامل مع النماذج والتحقق من صحة المدخلات<br>
-          المصادقة وإدارة الصلاحيات
-        </li>
-
-        <li>
-          <strong>ASP.NET CORE WEB API (مدة: أسبوعان)</strong><br>
-          مقدمة في Web API<br>
-          التحكم في البيانات والتوجيه (Controllers & Routing)<br>
-          التعامل مع البيانات باستخدام Entity Framework Core<br>
-          التحقق من صحة البيانات وإدارة الطلبات<br>
-          توثيق الـ API والاختبار
-        </li>
-
-        <li>
-          <strong>الهيكلية النظيفة (Clean Architecture) (مدة: أسبوع)</strong><br>
-          مبادئ الهيكلية النظيفة وفصل المسؤوليات<br>
-          استخدام أنماط الخدمة والمستودع
-        </li>
-
-        <li>
-          <strong>Flutter (مدة: 4 أسابيع)</strong><br>
-          بناء التطبيقات باستخدام Flutter<br>
-          إدارة الحالة باستخدام Provider وGETX<br>
-          تكامل API والعمل مع Firebase
-        </li>
-      </ol>
-    </section>
-
-    <!-- الفيديو -->
-    <section id="video-frame">
-      <h2>مقطع فيديو تعليمي</h2>
-      <iframe
-        src="https://us06web.zoom.us/rec/play/H75k-13WaRYNMr2p6MYCUwysW3fAdL5hkymS33rnoQQIswnaj5tQz-c6P6jKP8DgcbgZDnZX4LMcjB7M.YMbCdkhJfEKNL1Ix?eagerLoadZvaPages=&accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&startTime=1751626278000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FY9yVnZ3-mBPf2Zuh0gYPAeI8su8KqpWoKCLCV7uK4p1uxHxFxNAKGlDOkP__euc8.GOCrh5brSdK0-Bdh%3FstartTime%3D1751626278000"
-        title="فيديو تعليمي" frameborder="0" allowfullscreen>
-      </iframe>
-      <!-- ملاحظة: بعض روابط Zoom قد تمنع التضمين. إن ما اشتغل، ارفع المقطع على YouTube/Vimeo. -->
-    </section>
-
-    <!-- نموذج تواصل -->
-    <form>
-      <h2 id="head">نموذج تواصل</h2>
-
-      <label for="name">الاسم:</label>
-      <input id="name" name="name" type="text" placeholder="اكتب اسمك"/>
-
-      <label for="email">البريد الإلكتروني:</label>
-      <input id="email" name="email" type="email" placeholder="example@mail.com"/>
-
-      <label for="subject">الموضوع:</label>
-      <input id="subject" name="subject" type="text" placeholder="موضوع الرسالة"/>
-
-      <label for="message">الرسالة:</label>
-      <textarea id="message" name="message" cols="30" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
-
-      <label for="file">أرفق ملف:</label>
-      <input id="file" name="file" type="file"/>
-
-      <button type="submit">إرسال</button>
-    </form>
-  </main>
-
-  <!-- الفوتر -->
-  <footer id="footer">
-    <p>© 2025 جميع الحقوق محفوظة</p>
-    <div id="footer-links">
-      <!-- فضّل رقم واتساب بصيغة دولية: 9665XXXXXXX -->
-      <a href="https://wa.me/0555129578" target="_blank" rel="noopener">واتساب</a>
-      <a href="https://www.linkedin.com/in/abadnet?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">LinkedIn</a>
+<div class="card">
+  <div class="grid" style="align-items:center">
+    <div><strong>مقررات هذا الفصل</strong></div>
+    <div class="muted">أضف الساعات والدرجة لكل مقرر</div>
+    <div style="text-align:end">
+      <button id="addRow">+ إضافة مقرر</button>
     </div>
-  </footer>
+  </div>
 
-  <!-- إخفاء شاشة الترحيب بعد 3 ثواني -->
-  <script>
-    window.addEventListener("load", function () {
-      setTimeout(function () {
-        document.getElementById("splash").classList.add("hidden");
-      }, 3000); // 3 ثواني
+  <table id="coursesTable" aria-label="جدول المقررات">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>اسم المقرر (اختياري)</th>
+        <th>الساعات</th>
+        <th class="th-letter">الدرجة (حرف)</th>
+        <th class="th-percent" style="display:none">الدرجة (%)</th>
+        <th>نقاط المقرر</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <div class="footer muted" id="scaleNote"></div>
+</div>
+
+<div class="card results">
+  <div><span class="pill">ساعات الفصل:</span> <strong id="termHours">0</strong></div>
+  <div><span class="pill">نقاط الفصل:</span> <strong id="termPoints">0.000</strong></div>
+  <div><span class="pill">المعدل الفصلي:</span> <strong id="termGpa">0.000</strong></div>
+  <hr />
+  <div><span class="pill">الساعات الكلية:</span> <strong id="cumHours">0</strong></div>
+  <div><span class="pill">المعدل التراكمي:</span> <strong id="cumGpa">0.000</strong></div>
+</div>
+
+<script>
+(function(){
+  const tbody = document.getElementById('tbody');
+  const addRowBtn = document.getElementById('addRow');
+  const gradeMode = document.getElementById('gradeMode');
+  const scaleSel  = document.getElementById('scale');
+  const prevHours = document.getElementById('prevHours');
+  const prevGpa   = document.getElementById('prevGpa');
+
+  const el = id => document.getElementById(id);
+
+  function scaleNoteText(){
+    if(scaleSel.value === '4'){
+      return 'سلم 4.0 (شائع دوليًا): A=4, A-=3.7, B+=3.3, B=3, B-=2.7, C+=2.3, C=2, C-=1.7, D+=1.3, D=1, F=0.';
+    }else{
+      return 'سلم 5.0 (شائع في بعض جامعات السعودية): A=5.0, A-=4.75, B+=4.5, B=4.0, C+=3.5, C=3.0, D+=2.5, D=2.0, F=0.';
+    }
+  }
+
+  function letterToPoints(letter, scale){
+    if(!letter) return 0;
+    letter = letter.trim().toUpperCase();
+    if(scale === 4){
+      const map = {
+        'A':4.0,'A-':3.7,
+        'B+':3.3,'B':3.0,'B-':2.7,
+        'C+':2.3,'C':2.0,'C-':1.7,
+        'D+':1.3,'D':1.0,
+        'F':0.0
+      };
+      return map[letter] ?? 0;
+    }else{
+      // 5.0 scale (typical thresholds used in KSA — no +/- beyond listed)
+      const map = {
+        'A':5.0,'A-':4.75,
+        'B+':4.5,'B':4.0,
+        'C+':3.5,'C':3.0,
+        'D+':2.5,'D':2.0,
+        'F':0.0
+      };
+      return map[letter] ?? 0;
+    }
+  }
+
+  function percentToPoints(pct, scale){
+    pct = Number(pct);
+    if(!isFinite(pct)) return 0;
+
+    if(scale === 4){
+      // Common US thresholds
+      if(pct >= 93) return 4.0;
+      if(pct >= 90) return 3.7;
+      if(pct >= 87) return 3.3;
+      if(pct >= 83) return 3.0;
+      if(pct >= 80) return 2.7;
+      if(pct >= 77) return 2.3;
+      if(pct >= 73) return 2.0;
+      if(pct >= 70) return 1.7;
+      if(pct >= 67) return 1.3;
+      if(pct >= 63) return 1.0;
+      if(pct >= 60) return 0.7; // إن احتجتها جامعةك احذفها
+      return 0.0;
+    }else{
+      // 5.0 scale thresholds (شائعة في جامعات بالسعودية)
+      if(pct >= 95) return 5.0;
+      if(pct >= 90) return 4.75;
+      if(pct >= 85) return 4.5;
+      if(pct >= 80) return 4.0;
+      if(pct >= 75) return 3.5;
+      if(pct >= 70) return 3.0;
+      if(pct >= 65) return 2.5;
+      if(pct >= 60) return 2.0;
+      return 0.0;
+    }
+  }
+
+  function addRow(data={}){
+    const idx = tbody.children.length + 1;
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+      <td>${idx}</td>
+      <td><input type="text" placeholder="اسم المقرر"></td>
+      <td><input type="number" min="0" step="0.5" value="${data.hours??''}" placeholder="مثال: 3"></td>
+
+      <td class="td-letter">
+        <select>
+          <option value="">— اختر —</option>
+          <option>A</option><option>A-</option>
+          <option>B+</option><option>B</option><option ${scaleSel.value==='4'?'':'disabled'}>B-</option>
+          <option>C+</option><option>C</option><option ${scaleSel.value==='4'?'':'disabled'}>C-</option>
+          <option>D+</option><option>D</option>
+          <option>F</option>
+        </select>
+      </td>
+
+      <td class="td-percent" style="display:none">
+        <input type="number" min="0" max="100" step="0.1" placeholder="مثال: 87.5">
+      </td>
+
+      <td class="points">0.000</td>
+      <td class="row-actions"><button class="remove">حذف</button></td>
+    `;
+    tbody.appendChild(tr);
+    wireRow(tr);
+    recalc();
+  }
+
+  function wireRow(tr){
+    tr.querySelectorAll('input,select').forEach(c=>{
+      c.addEventListener('input', recalc);
+      c.addEventListener('change', recalc);
     });
-  </script>
+    tr.querySelector('.remove').addEventListener('click', ()=>{
+      tr.remove();
+      // إعادة ترقيم الصفوف
+      [...tbody.children].forEach((r,i)=>r.firstElementChild.textContent = i+1);
+      recalc();
+    });
+  }
+
+  function currentRowPoints(tr){
+    const hours = Number(tr.querySelector('td:nth-child(3) input').value);
+    if(!(hours>0)) return {qp:0,h:0};
+
+    const mode = gradeMode.value;
+    const scl  = Number(scaleSel.value);
+
+    let gp = 0;
+    if(mode==='letter'){
+      const letter = tr.querySelector('.td-letter select').value;
+      gp = letterToPoints(letter, scl);
+    }else{
+      const pct = tr.querySelector('.td-percent input').value;
+      gp = percentToPoints(pct, scl);
+    }
+    const qp = gp * hours;
+    tr.querySelector('.points').textContent = qp.toFixed(3);
+    return {qp, h: hours};
+  }
+
+  function recalc(){
+    // تبديل أعمدة الإدخال حسب الطريقة
+    const showLetter = gradeMode.value==='letter';
+    document.querySelector('.th-letter').style.display = showLetter ? '' : 'none';
+    document.querySelector('.th-percent').style.display = showLetter ? 'none' : '';
+    [...tbody.children].forEach(tr=>{
+      tr.querySelector('.td-letter').style.display  = showLetter ? '' : 'none';
+      tr.querySelector('.td-percent').style.display = showLetter ? 'none' : '';
+      // تعطيل B- و C- في سلم 5.0
+      const bminus = tr.querySelector('.td-letter option[value="B-"]');
+      const cminus = tr.querySelector('.td-letter option[value="C-"]');
+      if(bminus && cminus){
+        const is4 = scaleSel.value==='4';
+        bminus.disabled = !is4;
+        cminus.disabled = !is4;
+      }
+      currentRowPoints(tr);
+    });
+
+    // ملاحظة السلم
+    document.getElementById('scaleNote').textContent = scaleNoteText();
+
+    // جمع نقاط وساعات الفصل
+    let termHours = 0, termPoints = 0;
+    [...tbody.children].forEach(tr=>{
+      const {qp, h} = currentRowPoints(tr);
+      termHours  += h;
+      termPoints += qp;
+    });
+
+    const termGpa = termHours>0 ? (termPoints/termHours) : 0;
+
+    // التراكمي
+    const ph = Number(prevHours.value) || 0;
+    const pg = Number(prevGpa.value) || 0;
+    const prevPoints = ph * pg;
+    const cumHours = ph + termHours;
+    const cumGpa   = cumHours>0 ? ((prevPoints + termPoints)/cumHours) : 0;
+
+    el('termHours').textContent  = termHours.toFixed(2).replace(/\.00$/,'');
+    el('termPoints').textContent = termPoints.toFixed(3);
+    el('termGpa').textContent    = termGpa.toFixed(3);
+    el('cumHours').textContent   = cumHours.toFixed(2).replace(/\.00$/,'');
+    el('cumGpa').textContent     = cumGpa.toFixed(3);
+  }
+
+  // أحداث عامة
+  [addRowBtn, gradeMode, scaleSel, prevHours, prevGpa].forEach(c=>{
+    c.addEventListener('click',  e=>{ if(e.target===addRowBtn) addRow(); });
+    c.addEventListener('change', recalc);
+    c.addEventListener('input',  recalc);
+  });
+
+  // صفّان كمثال أوّل
+  addRow();
+  addRow();
+})();
+</script>
 </body>
 </html>
